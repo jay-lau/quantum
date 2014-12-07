@@ -18,6 +18,48 @@
 Developer Guide
 ===============
 
-The `Quantum Wiki`_ is a very good place to start.
+In the Developer Guide, you will find information on Neutron's lower level
+programming APIs. There are sections that cover the core pieces of Neutron,
+including its database, message queue, and scheduler components. There are
+also subsections that describe specific plugins inside Neutron.
 
-.. _`Quantum wiki`: http://wiki.openstack.org/Quantum
+
+Programming HowTos and Tutorials
+--------------------------------
+.. toctree::
+    :maxdepth: 3
+
+    development.environment
+
+
+Neutron Internals
+-----------------
+.. toctree::
+   :maxdepth: 3
+
+   api_layer
+   api_extensions
+   plugin-api
+   db_layer
+   rpc_api
+   layer3
+   l2_agents
+   advanced_services
+
+
+Module Reference
+----------------
+.. toctree::
+   :maxdepth: 3
+
+.. todo::
+
+    Add in all the big modules as automodule indexes.
+
+
+Indices and tables
+------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

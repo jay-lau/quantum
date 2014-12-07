@@ -92,7 +92,6 @@ msg_format_checkers = [
 ]
 
 
-file_black_list = ["./quantum/plugins/cisco/tests/unit",
-                   "./quantum/tests/unit",
-                   "./quantum/openstack",
-                   "./quantum/plugins/bigswitch/tests"]
+file_black_list = ["./neutron/tests/unit",
+                   "./neutron/openstack",
+                   "./neutron/plugins/bigswitch/tests"]

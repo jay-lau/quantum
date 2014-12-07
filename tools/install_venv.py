@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-# vim: tabstop=4 shiftwidth=4 softtabstop=4
-
 # Copyright 2010 United States Government as represented by the
 # Administrator of the National Aeronautics and Space Administration.
 # All Rights Reserved.
@@ -21,11 +19,11 @@
 #    under the License.
 
 """
-Installation script for Quantum's development virtualenv
+Installation script for Neutron's development virtualenv
 """
+from __future__ import print_function
 
 import os
-import subprocess
 import sys
 
 import install_venv_common as install_venv
@@ -33,12 +31,12 @@ import install_venv_common as install_venv
 
 def print_help():
     help = """
- Quantum development environment setup is complete.
+ Neutron development environment setup is complete.
 
- Quantum development uses virtualenv to track and manage Python dependencies
+ Neutron development uses virtualenv to track and manage Python dependencies
  while in development and testing.
 
- To activate the Quantum virtualenv for the extent of your current shell
+ To activate the Neutron virtualenv for the extent of your current shell
  session you can run:
 
  $ source .venv/bin/activate
@@ -50,16 +48,16 @@ def print_help():
 
  Also, make test will automatically use the virtualenv.
     """
-    print help
+    print(help)
 
 
 def main(argv):
     root = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
     venv = os.path.join(root, '.venv')
-    pip_requires = os.path.join(root, 'tools', 'pip-requires')
-    test_requires = os.path.join(root, 'tools', 'test-requires')
+    pip_requires = os.path.join(root, 'requirements.txt')
+    test_requires = os.path.join(root, 'test-requirements.txt')
     py_version = "python%s.%s" % (sys.version_info[0], sys.version_info[1])
-    project = 'Quantum'
+    project = 'Neutron'
     install = install_venv.InstallVenv(root, venv, pip_requires, test_requires,
                                        py_version, project)
     options = install.parse_args(argv)
@@ -67,7 +65,6 @@ def main(argv):
     install.check_dependencies()
     install.create_virtualenv(no_site_packages=options.no_site_packages)
     install.install_dependencies()
-    install.post_process()
     print_help()
 
 
